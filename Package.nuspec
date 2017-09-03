@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>rickevry.HappierSmtp</id>
+    <title>HappierSmtp</title>
+    <version>0.0.1</version>
+    <author>Rickard Nilsson</author>
+    <authors>Rickard Nilsson</authors>
+    <owners>Rickard Nilsson</owners>
+    <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>https://github.com/rickevry/HappierSmtp</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Send mail from Azure Functions</description>
+    <releaseNotes>First test.</releaseNotes>
+    <copyright>Copyright 2017</copyright>
+    <tags>SMTP Azure</tags>
+    <dependencies>
+      <dependency id="SampleDependency" version="1.0" />
+    </dependencies>
+  </metadata>
+</package>

@@ -1,0 +1,11 @@
+nuget setapikey 575072a9-140b-4df9-ae40-82873210e302
+
+..\nuget pack .\HappierSmtp\HappierSmtp.csproj
+..\nuget pack .\HappierCloud\HappierCloud.csproj
+
+..\nuget push HappierSmtp.0.0.2.nupkg -Source https://www.nuget.org/api/v2/package
+..\nuget push HappierSmtp.0.0.4.nupkg -Source https://www.nuget.org/api/v2/package
+
+
+
+..\nuget push HappierCloud.0.0.4-alpha.nupkg -Source https://www.nuget.org/api/v2/package
