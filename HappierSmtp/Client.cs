@@ -138,7 +138,7 @@ namespace HappierSmtp
             }
             return template;
         }
-        private string loadMailTemplate(string mailTemplateName, object props, ClientSettings settings)
+        private string loadMailTemplate(string mailTemplateName, ClientSettings settings)
         {
             object data = LoadBlob(settings.BlobConnection, settings.BlobContainer, mailTemplateName, false);
             return (data != null) ? data.ToString() : null;
@@ -150,7 +150,7 @@ namespace HappierSmtp
             {
                 if (!String.IsNullOrEmpty(mailTemplateName))
                 {
-                    string template = loadMailTemplate(mailTemplateName, props, settings);
+                    string template = loadMailTemplate(mailTemplateName, settings);
                     if (!string.IsNullOrEmpty(template))
                     {
                         return parseTemplate(template, props);
