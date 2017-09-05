@@ -171,6 +171,11 @@ namespace HappierSmtp
         {
             SmtpClient client = getSmtpClient(this._settings);
 
+            if (!props.ContainsKey("body"))
+            {
+                props.Add("body", cmd.Body);
+            }
+
             string htmlBody = getBody(props, cmd.Body, cmd.TemplateName, this._settings);
 
             var mailMessage = new MailMessage
