@@ -31,8 +31,6 @@ namespace HappierSmtp
         public string From { get; set; }
         public InlineAttachment[] InlineAttachments { get; set; }
         public Attachment[] Attachments { get; set; }
-
-        
-
+        public Dictionary<string, string> Props { get; set; }
     }
 }

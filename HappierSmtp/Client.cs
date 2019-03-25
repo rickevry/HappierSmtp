@@ -4,6 +4,7 @@ using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 using System.IO;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace HappierSmtp
 {
@@ -167,16 +168,22 @@ namespace HappierSmtp
         {
             this._settings = props;
         }
-        public void Send(MailCmd cmd, Dictionary<string, string> props)
+        public MailCmd Deserialize(string json)
+        {
+            MailCmd cmd = JsonConvert.DeserializeObject<MailCmd>(json);
+            return cmd;
+        }
+
+        public void Send(MailCmd cmd)
         {
             SmtpClient client = getSmtpClient(this._settings);
 
-            if (!props.ContainsKey("body"))
+            if (cmd.Props!=null && !cmd.Props.ContainsKey("body"))
             {
-                props.Add("body", cmd.Body);
+                cmd.Props.Add("body", cmd.Body);
             }
 
-            string htmlBody = getBody(props, cmd.Body, cmd.TemplateName, this._settings);
+            string htmlBody = getBody(cmd.Props, cmd.Body, cmd.TemplateName, this._settings);
 
             var mailMessage = new MailMessage
             {
